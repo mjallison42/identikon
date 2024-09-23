@@ -29,5 +29,7 @@ import java.io.OutputStream
 public fun Identicon.saveAsSvg(stream: OutputStream) {
     val renderer = SvgRenderer(size, size)
     render(renderer)
-    renderer.save(stream.bufferedWriter())
+    val br = stream.bufferedWriter()
+    renderer.save(br)
+    br.close()
 }
